@@ -96,8 +96,8 @@ class Filter:
         P = track.P
         R = meas.R
 
-        gamma = z - H*x # residual
-        S = H*P*H.transpose() + R # covariance of residual
+        gamma = self.gamma(track, meas) # residual
+        S = self.S(track, meas, H)# covariance of residual
         K = P*H.transpose()*np.linalg.inv(S) # Kalman gain
         x = x + K*gamma # state update
         I = np.identity(self.dim_state)
@@ -114,11 +114,9 @@ class Filter:
         ############
         # TODO Step 1: calculate and return residual gamma
         ############
-        H = meas.sensor.get_H(track.x) # measurement matrix
-        z = meas.z
-        x = track.x
+        # H = meas.sensor.get_H(track.x) # measurement matrix
 
-        gamma = z - H*x
+        gamma = meas.z - meas.sensor.get_hx(track.x)
 
         return gamma
         
