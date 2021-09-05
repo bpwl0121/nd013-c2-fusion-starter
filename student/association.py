@@ -37,7 +37,8 @@ class Association:
         # - replace association_matrix with the actual association matrix based on Mahalanobis distance (see below) for all tracks and all measurements
         # - update list of unassigned measurements and unassigned tracks
         ############
-        
+
+        # ref: udacity fusion exercises https://github.com/udacity/nd013-c2-fusion-exercises
         # the following only works for at most one track and one measurement
         N = len(track_list) # N tracks
         M = len(meas_list) # M measurements
@@ -68,7 +69,7 @@ class Association:
         # - remove corresponding track and measurement from unassigned_tracks and unassigned_meas
         # - return this track and measurement
         ############
-
+        # ref: udacity fusion exercises https://github.com/udacity/nd013-c2-fusion-exercises
         # the following only works for at most one track and one measurement
         A = self.association_matrix
         if np.min(A) == np.inf:
@@ -114,7 +115,8 @@ class Association:
         ############
         # TODO Step 3: calculate and return Mahalanobis distance
         ############
-        
+
+        # ref: udacity fusion exercises https://github.com/udacity/nd013-c2-fusion-exercises
         H = meas.sensor.get_H(track.x)
         gamma = KF.gamma(track, meas)
         S = KF.S(track, meas, H)

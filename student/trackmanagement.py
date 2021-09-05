@@ -34,6 +34,7 @@ class Track:
         # unassigned measurement transformed from sensor to vehicle coordinates
         # - initialize track state and track score with appropriate values
         ############
+        # ref: udacity fusion exercises https://github.com/udacity/nd013-c2-fusion-exercises
         pos_sens = np.ones((4, 1)) # homogeneous coordinates
         pos_sens[0:3] = meas.z[0:3] 
         pos_veh = meas.sensor.sens_to_veh*pos_sens

@@ -81,6 +81,7 @@ class Sensor:
             # - make sure to not divide by zero, raise an error if needed
             # - return h(x)
             ############
+            # ref: udacity fusion exercises https://github.com/udacity/nd013-c2-fusion-exercises
             pos_veh = np.ones((4, 1)) # homogeneous coordinates
             pos_veh[0:3] = x[0:3] 
             pos_sens = self.veh_to_sens*pos_veh # transform from vehicle to camera coordinates
