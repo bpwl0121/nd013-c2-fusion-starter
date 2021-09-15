@@ -27,3 +27,7 @@ The bumper can be clearly identified in the point cloud and intensity map.
 The range image also confirms this:
 <img src="img/5.png"/>
 ### We can also prove this from the point cloud diagram in the first question. lidar sensors in their work generally detect the front and rear of other vehicles. And the front and rear bumpers and headlights are its obvious features.
+
+
+# feedback
+<img src="img/feedback.png"/>
